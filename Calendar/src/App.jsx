@@ -1,74 +1,60 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import moment from 'moment';
 
-import Grid from "./components/Calendar";
-import LeftPannel from "./components/LeftPannel";
-import Days from "./components/Days";
+import './index.css';
 
-export default class App extends React.Component {
+
+import { CalendarGrid } from './components/CalendarGrid';
+import { Header } from './components/Header'
+
+
+function App() {
 	
-
-	
-
-	render() {
 		
 		moment.updateLocale('en', {week: {dow: 1} })
 
-		const startDay = moment().startOf('month').startOf('week');
-		const endDay = moment().endOf('month').endOf('week');
-
-		let calendar = [];
-
-		let currentDay = startDay.clone();
-
-		while (!currentDay.isAfter(endDay)) {
-
-			calendar.push(currentDay.clone());
-
-			currentDay.add(1, 'days');	
-			
+		const [today, setToday] = useState(moment());
+		let startDay = today.clone().startOf('week');
+		
+		const prevHandler = () => {
+			setToday(prev => prev.clone().subtract(1, 'week'));
+			console.log('PREVIOUS');
+		}
+		const todayHandler = () => {
+			setToday(moment());
+		}
+		const nextHandler = () => {
+			setToday(prev => prev.clone().add(1, 'week'));
 		}
 
-		console.log("Начало месяца:   ", startDay.format("DD MMMM YYYY"));
-		console.log("Конец месяца:   ", endDay.format("DD MMMM YYYY"));
+		const nextMonth = () => {
+			setToday(prev => prev.clone().add(45, 'day').startOf('month').startOf('week'));
+		}
 
-		console.log("Дебаг:    ", endDay);
-
-		console.log("Текущий месяц:   ", calendar);
-
-
+		const prevMonth = () => {
+			setToday(prev => prev.clone().subtract(15, 'day').startOf('month').startOf('week'));
+		}
 
 
 		return (
 			<div>
-				
+				<Header 
+					today={today}
+
+					prevHandler={prevHandler}
+					todayHandler={todayHandler}
+					nextHandler={nextHandler}
+
+					nextMonth={nextMonth}
+					prevMonth={prevMonth}
+				/>
+				<div className="maskWhite">placeholder</div>
+				<CalendarGrid startDay={startDay} />
 				
 			</div>
 		);
-	}
+	
 }
 
-
-// function App() {
-// 	moment.updateLocale('en', {week: {dow: 1} })
-
-// 	const startDay = moment().startOf('month').startOf('week');
-// 	const endDay = moment().endOf('month').endOf('week');
-
-// 	let calendar = [startDay.format("DD MMMM YYYY     "), ];
-
-// 	const currentDay = startDay.format("DD MMMM YYYY     ");
-
-// 	while (!currentDay.isSame(endDay)) {
-// 		currentDay.add(1, "day");
-
-// 		calendar.push(currentDay);
-			
-// 	}
-
-// 	console.log("Начало месяца:   ", startDay.format("DD MMMM YYYY"));
-// 	console.log("Конец месяца:   ", endDay.format("DD MMMM YYYY"));
-
-// 	console.log("Текущая неделя:   ", calendar);
-// }
+export default App;

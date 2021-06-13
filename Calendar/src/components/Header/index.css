@@ -1,0 +1,15 @@
+.rightControlPanel {
+    margin-left: 3%;
+    display: flex;
+   
+}
+
+.textGap {
+    padding: 2px;
+    font-size: 18px;
+}
+
+button {
+    text-decoration: none;
+}
+

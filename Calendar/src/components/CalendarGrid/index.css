@@ -1,0 +1,249 @@
+.underline {
+    border: none;
+    color: black;
+    background-color: black;
+    height: 2px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 870px;
+}
+
+.dateUnderline {
+    height: 3px;
+    width: 340px;
+    
+    color: black;
+    background-color: black;
+
+    position: relative;
+    display: flex;
+
+    bottom: 935px;
+    left: -785px
+
+}
+
+.eightAM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 800px;
+}
+
+.nineAM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 730px;
+}
+
+.tenAM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 660px;
+}
+
+.elevenAM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 590px;
+}
+
+.twelveAM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 520px;
+}
+
+.onePM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 450px;
+}
+
+.twoPM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 380px;
+}
+
+.threePM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 310px;
+}
+
+.fourPM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 240px;
+}
+
+.fivePM {
+    border: none;
+    color: black;
+    background-color: black;
+    opacity: 50%;
+    height: 1px;
+
+    position: relative;
+    display: flex;
+
+    bottom: 170px;
+}
+
+
+/*! Times */
+
+.eightAMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 905px;
+}
+
+.nineAMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 843px;
+}
+
+.tenAMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 779px;
+}
+
+.elevenAMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 716px;
+}
+
+.twelveAMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 653px;
+}
+
+.onePMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 590px;
+}
+
+.twoPMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 527px;
+}
+
+.threePMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 464px;
+}
+
+.fourPMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom: 401px;
+}
+
+.fivePMTiming {
+    position: relative;
+    display: flex;
+
+    font-size: 12px;
+
+    bottom:338px;
+}
