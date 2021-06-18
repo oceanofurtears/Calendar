@@ -1,0 +1,54 @@
+{
+    "events" : [
+        { 
+            "id": 1,
+            "name": "IDE",
+            "module": "IT",
+
+            "description": "Front-End",
+            "classroom": "online",
+
+            "group": 1,
+            "professor": "Dmitriy Medvedev",
+
+            "timeStart": "",
+            "timeEnd": "",
+
+            "date": 1623745800
+        },
+
+        { 
+            "id": 2,
+            "name": "IDE",
+            "module": "IT",
+
+            "description": "Back-End",
+            "classroom": "offline",
+
+            "group": 1,
+            "professor": "Andrey Vorobyov",
+
+            "timeStart": "",
+            "timeEnd": "",
+
+            "date": 1623832200
+        },
+
+        { 
+            "id": 3,
+            "name": "IDE",
+            "module": "IT",
+
+            "description": "FullStack",
+            "classroom": "discord",
+
+            "group": 1,
+            "professor": "none",
+
+            "timeStart": "",
+            "timeEnd": "",
+
+            "date": 1624264200
+        }
+    ]
+}
