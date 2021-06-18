@@ -78,6 +78,15 @@ const Reboot = styled('div')`
     justify-content: center;
 `;
 
+const CurrentTime = styled('div') `
+    position: relative;
+
+    height: 3px;
+    background-color: red;
+    color: red;
+
+    bottom: ${ ( (moment().format("h") * 60) + (moment().format("m"))*1 ) / 360}"px";
+`
 
 
 const CalendarGrid = ({startDay}) => {
@@ -112,6 +121,8 @@ const CalendarGrid = ({startDay}) => {
 
             <hr className="underline" />
             <hr className="dateUnderline" />
+
+            <CurrentTime />
 
             {/* //! Horizontal lines */}
             <hr className="eightAM" />
