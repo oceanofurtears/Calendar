@@ -66,6 +66,14 @@ const OtherDays = styled('div')`
     justify-content: center;
 `;
 
+const DaysOfWeek = styled('div')`
+    
+    font-size: 20px;
+
+    margin-top: 3px;
+    margin-left: 10px;
+`
+
 const Reboot = styled('div')`
     display: flex;
 
@@ -85,11 +93,12 @@ const CurrentTime = styled('div') `
     background-color: red;
     color: red;
 
-    bottom: ${ ( (moment().format("h") * 60) + (moment().format("m"))*1 ) / 360}"px";
+    bottom: ${ ( (moment().subtract(22, 'hours').format("h") * 60) + (moment().format("m"))*1 ) / 360 * 1550}px;
 `
+//? bottom: ${ ( (moment().format("h") * 60) + (moment().format("m"))*1 ) / 360}"px";
+//! Стрелочная функция в bottom 
 
-
-const CalendarGrid = ({startDay}) => {
+const CalendarGrid = ({startDay}, state) => {
 
     const totalDays = 7;
     const currentDay = startDay.clone().subtract(1, 'day');
@@ -97,6 +106,8 @@ const CalendarGrid = ({startDay}) => {
     let daysList = [...Array(totalDays)].map(() => currentDay.add(1, 'day').clone());
 
     const isCurrentDay = (currentDay) => moment().isSame(currentDay, 'day');
+
+    
     
     return (
         <div>
@@ -112,7 +123,11 @@ const CalendarGrid = ({startDay}) => {
                                 <DayWrapper>
                                     {!isCurrentDay(dayItem) && <OtherDays>{dayItem.format('D')}</OtherDays> } {/* Необходимо выводить день недели рядом*/}
                                     {isCurrentDay(dayItem) && <CurrentDay>{dayItem.format('D')}</CurrentDay> }
+
+                                    
                                 </DayWrapper>
+                                
+                                <DaysOfWeek>{dayItem.format('dddd')}</DaysOfWeek>
                             </CellInRow>
                         </CellWrapper>
                     ))
@@ -121,8 +136,10 @@ const CalendarGrid = ({startDay}) => {
 
             <hr className="underline" />
             <hr className="dateUnderline" />
-
+            
+            
             <CurrentTime />
+            
 
             {/* //! Horizontal lines */}
             <hr className="eightAM" />

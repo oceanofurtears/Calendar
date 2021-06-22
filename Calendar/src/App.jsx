@@ -9,7 +9,7 @@ import { CalendarGrid } from './components/CalendarGrid';
 import { Header } from './components/Header'
 import { Event } from './components/Event';
 
-const url = 'http://localhost:3001';
+// const url = 'http://localhost:3001';
 
 function App() {
 	
@@ -17,44 +17,74 @@ function App() {
 		moment.updateLocale('en', {week: {dow: 1} })
 
 		const [today, setToday] = useState(moment());
+		const [isCurrentWeek, setIsCurrentWeek] = useState(false);
+
 		let startDay = today.clone().startOf('week');
 
-		//* console.log( ( (moment().format("h") * 60) + (moment().format("m"))*1 ) / 360);
 		
 		const prevHandler = () => {
 			setToday(prev => prev.clone().subtract(1, 'week'));
+
+			if (today === moment().startOf('month').startOf('week')) {
+				setIsCurrentWeek(true);
+			}
+			else {
+				setIsCurrentWeek(false);
+			}
 		}
 		const todayHandler = () => {
 			setToday(moment());
+			setIsCurrentWeek(true);
 		}
 		const nextHandler = () => {
 			setToday(prev => prev.clone().add(1, 'week'));
+
+			if (today === moment().startOf('month').startOf('week')) {
+				setIsCurrentWeek(true);
+			}
+			else {
+				setIsCurrentWeek(false);
+			}
 		}
 
 		const nextMonth = () => {
 			setToday(prev => prev.clone().add(45, 'day').startOf('month').startOf('week'));
+
+			if (today === moment().startOf('month').startOf('week')) {
+				setIsCurrentWeek(true);
+			}
+			else {
+				setIsCurrentWeek(false);
+			}
 		}
 
 		const prevMonth = () => {
 			setToday(prev => prev.clone().subtract(15, 'day').startOf('month').startOf('week'));
+
+			if (today === moment().startOf('month').startOf('week')) {
+				setIsCurrentWeek(true);
+			}
+			else {
+				setIsCurrentWeek(false);
+			}
 		}
 
 
 		//! working with json
 
-		const [events, setEvents] = useState( []);
-		const startDateQuery = startDay.clone().format('X');
-		const endDateQuery = startDay.clone().endOf('week').format('X');
+		// const [events, setEvents] = useState( []);
+		// const startDateQuery = startDay.clone().format('X');
+		// const endDateQuery = startDay.clone().endOf('week').format('X');
 
-		useEffect( () => {
-			fetch(`${url}/events?date_gte=${startDateQuery}&date_lte=${endDateQuery}`)
-				.then (res => res.json())
-				.then (res => {
-					console.log('response', res);
-					setEvents(res);
+		// useEffect( () => {
+		// 	fetch(`${url}/events?date_gte=${startDateQuery}&date_lte=${endDateQuery}`)
+		// 		.then (res => res.json())
+		// 		.then (res => {
+		// 			console.log('response', res);
+		// 			setEvents(res);
 					
-				});
-		}, []);
+		// 		});
+		// }, []);
 
 
 		return (
@@ -71,9 +101,15 @@ function App() {
 				/>
 				<div className="maskWhite">placeholder</div>
 				
-				<CalendarGrid startDay={startDay} />
+				<CalendarGrid 
+					startDay={startDay}
+					
+				/>
 
-				<Event/>
+				<Event
+					today={today}
+					isCurrentWeek={isCurrentWeek}
+				/>
 			</div>
 		);
 	
